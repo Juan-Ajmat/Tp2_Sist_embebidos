@@ -1,4 +1,5 @@
 SRC_DIR = ./src
+INC_DIR = ./inc
 OUT_DIR = ./build
 OBJ_DIR = $(OUT_DIR)/obj
 BIN_DIR = $(OUT_DIR)/bin
@@ -13,7 +14,7 @@ $(OBJ_DIR): $(OUT_DIR)
 	mkdir $(OBJ_DIR)
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(OBJ_DIR)
-	gcc -c $< -o $@
+	gcc -c $< -o $@ -I $(INC_DIR)
 
 
 all: $(OBJ_FILES)
