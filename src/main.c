@@ -16,5 +16,8 @@ SPDX-License-Identifier: MIT
 
 #include "alumno.h"
 
+int main (void){
 
+    return 0;
+}
 
