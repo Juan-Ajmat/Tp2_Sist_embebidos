@@ -17,7 +17,23 @@ SPDX-License-Identifier: MIT
 #include "alumno.h"
 
 int main (void){
+	static const struct alumno_s yo ={
+		.apellido = "Ajmat",
+		.nombre = "Juan Ignacio",
+		.documento = 41649548,
+	};
 
-    return 0;
+
+
+
+char cadena [128];
+
+if (serializar(&yo, cadena, sizeof(cadena)) >=0){
+	printf("%s\n", cadena);
+}else{
+	printf("Error al serializar\n");
+};
+
+return 0;
+
 }
-
