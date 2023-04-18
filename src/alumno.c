@@ -14,14 +14,20 @@ SPDX-License-Identifier: MIT
  ** \addtogroup alumno Alumnos
  ** \brief Modulo para la gestion de alumno
  ** @{ */
+/* === Headers files inclusions ================================================================ */
 
+#include "alumno.h"
+#include <stdio.h>
+/* === Private function declarations =========================================================== */
+static int SerializarCadena ();
+static int SerializarNumero ();
 
-
-static int SerializarCadena (char * campo, char * valor, char * cadena, int espacio ){
+/* === Private function implementation ========================================================= */
+static int SerializarCadena (const char * campo, const char * valor, char * cadena, int espacio ){
     return snprintf(cadena, espacio, "\"%s\":\"%s\",", campo, valor);
 }
 
-static int SerializarNumero (char * campo, int valor, char * cadena, int espacio ){
+static int SerializarNumero (const char * campo, int valor, char * cadena, int espacio ){
     return snprintf(cadena, espacio, "\"%s\":\"%d\",", campo, valor);
 }
 
@@ -30,9 +36,8 @@ int serializar (const struct alumno_s * alumno, char cadena[], uint32_t espacio)
     int disponibles = espacio;
     int resultado;
 
-    cadena[] = '{';
+    cadena[0] = '{';
     cadena++;
-
     disponibles--;
     resultado = SerializarCadena("apellido", alumno->apellido, cadena, disponibles);
 
@@ -50,6 +55,7 @@ int serializar (const struct alumno_s * alumno, char cadena[], uint32_t espacio)
 
     if (resultado>0){
         cadena += resultado;
+        disponibles -=resultado;
         *(cadena -1 ) = '}';
         resultado = espacio - disponibles;
     }

@@ -13,19 +13,18 @@ SPDX-License-Identifier: MIT
  ** \addtogroup tp2 TPN2
  ** \brief Trabajo Práctico nª2
  ** @{ */
+/* === Headers files inclusions ================================================================ */
 
 #include "alumno.h"
+#include <stdio.h>
 
+/* === Public variable definitions ============================================================= */
 int main (void){
 	static const struct alumno_s yo ={
 		.apellido = "Ajmat",
 		.nombre = "Juan Ignacio",
 		.documento = 41649548,
 	};
-
-
-
-
 char cadena [128];
 
 if (serializar(&yo, cadena, sizeof(cadena)) >=0){
@@ -33,7 +32,5 @@ if (serializar(&yo, cadena, sizeof(cadena)) >=0){
 }else{
 	printf("Error al serializar\n");
 };
-
 return 0;
-
 }
