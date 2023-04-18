@@ -24,3 +24,35 @@ static int SerializarCadena (char * campo, char * valor, char * cadena, int espa
 static int SerializarNumero (char * campo, int valor, char * cadena, int espacio ){
     return snprintf(cadena, espacio, "\"%s\":\"%d\",", campo, valor);
 }
+
+int serializar (const struct alumno_s * alumno, char cadena[], uint32_t espacio)
+{
+    int disponibles = espacio;
+    int resultado;
+
+    cadena[] = '{';
+    cadena++;
+
+    disponibles--;
+    resultado = SerializarCadena("apellido", alumno->apellido, cadena, disponibles);
+
+    if (resultado>0){
+        disponibles-= resultado;
+        cadena += resultado;
+        resultado = SerializarCadena("nombre", alumno->nombre, cadena, disponibles);
+    }
+
+    if(resultado>0){
+        disponibles-= resultado;
+        cadena += resultado;
+        resultado = SerializarNumero("documento", alumno->documento, cadena, disponibles);
+    }
+
+    if (resultado>0){
+        cadena += resultado;
+        *(cadena -1 ) = '}';
+        resultado = espacio - disponibles;
+    }
+
+    return resultado;
+};
