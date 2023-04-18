@@ -34,7 +34,13 @@ typedef struct alumno_s{
 	char apellido[FIELD_SIZE];
 	char nombre[FIELD_SIZE];
 	uint32_t documento;
-}alumno_t;
+}* alumno_t;
+
+
+int serializar(
+    const struct alumno_s * alumno, 
+    char cadena[],                  
+    uint32_t espacio);
 /* === Public variable declarations ============================================================ */
 
 /* === Public function declarations ============================================================ */
