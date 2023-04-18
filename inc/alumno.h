@@ -31,9 +31,9 @@ extern "C" {
 
 /* === Public data type declarations =========================================================== */
 typedef struct alumno_s{
-    char apellido[50];
-    char nombre[50];
-    uint32_t documento;
+	char apellido[FIELD_SIZE];
+	char nombre[FIELD_SIZE];
+	uint32_t documento;
 }alumno_t;
 /* === Public variable declarations ============================================================ */
 
