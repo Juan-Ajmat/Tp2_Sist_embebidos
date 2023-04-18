@@ -39,18 +39,18 @@ int serializar (const struct alumno_s * alumno, char cadena[], uint32_t espacio)
     cadena[0] = '{';
     cadena++;
     disponibles--;
-    resultado = SerializarCadena("apellido", alumno->apellido, cadena, disponibles);
+    resultado = SerializarCadena("Apellido:", alumno->apellido, cadena, disponibles);
 
     if (resultado>0){
         disponibles-= resultado;
         cadena += resultado;
-        resultado = SerializarCadena("nombre", alumno->nombre, cadena, disponibles);
+        resultado = SerializarCadena("Nombre:", alumno->nombre, cadena, disponibles);
     }
 
     if(resultado>0){
         disponibles-= resultado;
         cadena += resultado;
-        resultado = SerializarNumero("documento", alumno->documento, cadena, disponibles);
+        resultado = SerializarNumero("Documento:", alumno->documento, cadena, disponibles);
     }
 
     if (resultado>0){
