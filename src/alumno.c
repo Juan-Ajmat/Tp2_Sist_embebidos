@@ -15,3 +15,12 @@ SPDX-License-Identifier: MIT
  ** \brief Modulo para la gestion de alumno
  ** @{ */
 
+
+
+static int SerializarCadena (char * campo, char * valor, char * cadena, int espacio ){
+    return snprintf(cadena, espacio, "\"%s\":\"%s\",", campo, valor);
+}
+
+static int SerializarNumero (char * campo, int valor, char * cadena, int espacio ){
+    return snprintf(cadena, espacio, "\"%s\":\"%d\",", campo, valor);
+}

@@ -25,11 +25,16 @@ extern "C" {
 #endif
 
 /* === Public macros definitions =============================================================== */
+#include<stdio.h>
+#define FIELD_SIZE 50
+
 
 /* === Public data type declarations =========================================================== */
-struct alumno_s^{
-    
-}
+typedef struct alumno_s{
+    char apellido[50];
+    char nombre[50];
+    uint32_t documento;
+}alumno_t;
 /* === Public variable declarations ============================================================ */
 
 /* === Public function declarations ============================================================ */
