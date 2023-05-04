@@ -32,21 +32,20 @@ extern "C" {
 
 
 /* === Public data type declarations =========================================================== */
-typedef struct alumno_s{
-	char apellido[FIELD_SIZE];
-	char nombre[FIELD_SIZE];
-	uint32_t documento;
-}* alumno_t;
+typedef struct alumno_s * alumno_t;
 
 
-int serializar(
-    const struct alumno_s * alumno, 
-    char cadena[],                  
-    uint32_t espacio);
+
 /* === Public variable declarations ============================================================ */
 
 /* === Public function declarations ============================================================ */
+alumno_t CrearAlumno(char * apellido, char * nombre, int documento);
 
+int GetCompleto(alumno_t alumno, char cadena [], uint32_t espacio);
+
+int GetDocumento (alumno_t alumno);
+
+int serializar(alumno_t alumno, char cadena[], uint32_t espacio);
 /* === End of documentation ==================================================================== */
 
 #ifdef __cplusplus

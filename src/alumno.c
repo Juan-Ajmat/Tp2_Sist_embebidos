@@ -18,6 +18,11 @@ SPDX-License-Identifier: MIT
 
 #include "alumno.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+
+
 /* === Private function declarations =========================================================== */
 static int SerializarCadena ();
 static int SerializarNumero ();
@@ -31,6 +36,45 @@ static int SerializarNumero (const char * campo, int valor, char * cadena, int e
     return snprintf(cadena, espacio, "\"%s\":\"%d\",", campo, valor);
 }
 
+alumno_t CrearAlumno (char * apellido, char * nombre, uint32_t documento) {
+    
+    alumno_t resultado; 
+
+#if opcion == 1             
+
+    resultado = malloc(sizeof(struct alumno_s));                   
+    if (resultado != NULL) {
+    strcpy(resultado->apellido, apellido);
+    strcpy(resultado->nombre, nombre);
+    resultado->documento = documento;
+    } else {
+        return NULL;
+    }
+#else       
+
+static struct alumno_s instancias[50] = {0}; 
+uint8_t i = 0;
+
+for (uint8_t i = 0; i <= 50; i++) {
+
+    if (instancias[i].ocupado == 0) {
+
+        resultado = &instancias[i];
+        strcpy(instancias[i].apellido, apellido);
+        strcpy(instancias[i].nombre, nombre);
+        instancias[i].documento = documento;
+        instancias[i].ocupado = true;
+
+        return resultado;   
+    }
+}
+
+#endif
+
+return resultado;
+
+}
+    
 int serializar (const struct alumno_s * alumno, char cadena[], uint32_t espacio)
 {
     int disponibles = espacio;
