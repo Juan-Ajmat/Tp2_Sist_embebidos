@@ -22,14 +22,14 @@ SPDX-License-Identifier: MIT
 #include <string.h>
 #include <stdbool.h>
 
-#define FIEL SIZE 100
+#define FIELD_SIZE 100
 
 #define opcion 1
 
 /* === Private function declarations =========================================================== */
 struct alumno_s{
-    char apellido[FIELD SIZE];
-    char nombre[FIELD SIZE];
+    char apellido[FIELD_SIZE];
+    char nombre[FIELD_SIZE];
     uint32_t documento;
     bool ocupado;
 };

@@ -28,7 +28,7 @@ int main (void){
 //	};
 
 char cadena [128];
-alummno_t yo= CrearAlumno("Ajmat", "Juan Ignacio", 41649548);
+alumno_t yo= CrearAlumno("Ajmat", "Juan Ignacio", 41649548);
 alumno_t other= CrearAlumno("Gonzalez", "Mauro", 45555555)
 
 

@@ -28,7 +28,7 @@ extern "C" {
 
 /* === Public macros definitions =============================================================== */
 
-#define FIELD_SIZE 50
+#define FIELD_SIZE 100
 
 
 /* === Public data type declarations =========================================================== */
@@ -39,7 +39,7 @@ typedef struct alumno_s * alumno_t;
 /* === Public variable declarations ============================================================ */
 
 /* === Public function declarations ============================================================ */
-alumno_t CrearAlumno(char * apellido, char * nombre, int documento);
+alumno_t CrearAlumno(char * apellido, char * nombre, uint32_t documento);
 
 int GetCompleto(alumno_t alumno, char cadena [], uint32_t espacio);
 
