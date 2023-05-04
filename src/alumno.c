@@ -22,10 +22,17 @@ SPDX-License-Identifier: MIT
 #include <string.h>
 #include <stdbool.h>
 
+#define FIEL SIZE 100
+
+#define opcion 1
 
 /* === Private function declarations =========================================================== */
-static int SerializarCadena ();
-static int SerializarNumero ();
+struct alumno_s{
+    char apellido[FIELD SIZE];
+    char nombre[FIELD SIZE];
+    uint32_t documento;
+    bool ocupado;
+};
 
 /* === Private function implementation ========================================================= */
 static int SerializarCadena (const char * campo, const char * valor, char * cadena, int espacio ){
@@ -75,7 +82,7 @@ return resultado;
 
 }
     
-int serializar (const struct alumno_s * alumno, char cadena[], uint32_t espacio)
+int serializar (alumno_t alumno, char * cadena, uint32_t espacio)
 {
     int disponibles = espacio;
     int resultado;
